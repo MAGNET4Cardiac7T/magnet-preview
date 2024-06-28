@@ -1,0 +1,10 @@
+_target_: magnet.models.LightningModel
+alpha: 0.1
+beta: 10
+net:
+  _target_: magnet.models.UNet
+  input_channels: 6
+  output_channels: 12
+  base_channels: 32
+  upsample: True
+  upsample_mode: trilinear

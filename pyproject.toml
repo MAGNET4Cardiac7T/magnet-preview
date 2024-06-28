@@ -1,0 +1,51 @@
+# pyproject.toml
+
+[build-system]
+requires      = [ "setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "magnet"
+version = "0.1.0"
+description = "Models, datasets and tools for the MAGNET4Cardiac7T project"
+readme = "README.md"
+authors = [{ name = "Andrzej Dulny", email = "andrzej.dulny@protonmail.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["physics", "MRI", "Maxwell's Equations"]
+dependencies = [
+    "numpy>=1.23.5", 
+    "h5py>=3.9.0",
+    "pytorch_lightning",
+    "torch",
+    "hydra-core",
+    "pandas",
+    "scipy",
+    "rtree"
+]
+requires-python = ">=3.9"
+
+
+[project.optional-dependencies]
+visualization = [
+    "matplotlib", 
+    "plotly",
+    "nbformat"
+]
+logging = ["tensorboard", "wandb"]
+
+meshes = ["trimesh", "pyrender", "stripy", "pyglet"]
+
+
+[project.urls]
+# homepage = ""
+# documentation = ""
+# source = ""
+
+
+# [project.scripts]
+# dynabench = "dynabench.__main__:main"

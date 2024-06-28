@@ -1,0 +1,9 @@
+_target_: magnet.models.LightningModel
+alpha: 0.1
+beta: 10
+net:
+  _target_: magnet.models.UNETR
+  input_dim: 6
+  output_dim: 12
+  embed_dim: 120
+  num_heads: 12

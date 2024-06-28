@@ -1,0 +1,10 @@
+_target_: torch.utils.data.DataLoader
+dataset:
+  _target_: magnet.dataset.dataset.MagnetSimulationDataset
+  simulations_path: data/processed_h5/test
+  coils_path: data/dipoles/simple/processed
+  phase_samples_per_simulation: 200
+  enumerate_coils_individually: True
+
+batch_size: 1
+num_workers: 8

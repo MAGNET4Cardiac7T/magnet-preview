@@ -1,0 +1,4 @@
+root_path: data/processed/train
+phase_samples_per_simulation: 100
+batch_size: 2
+num_workers: 8

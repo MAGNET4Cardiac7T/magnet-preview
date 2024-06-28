@@ -1,0 +1,15 @@
+_target_: magnet.models.LightningModel
+alpha: 0.1
+beta: 10
+lambda_efield: 1
+lambda_hfield: 1
+lambda_physics: 0.1
+physics_loss: 
+  _target_: magnet.utils.faradays_loss.FaradaysLoss
+net:
+  _target_: magnet.models.UNet
+  input_channels: 6
+  output_channels: 12
+  base_channels: 32
+  upsample: True
+  upsample_mode: trilinear

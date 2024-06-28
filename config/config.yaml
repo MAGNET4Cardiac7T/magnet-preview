@@ -1,0 +1,13 @@
+defaults:
+  - _self_
+  - trainer: default
+  - dataset: test
+  - model: unet
+  
+
+experiment_name: unet
+resume_from_checkpoint: last
+
+hydra:
+  run:
+    dir: output/hydra/${hydra.job.name}/${now:%Y-%m-%d_%H-%M-%S}

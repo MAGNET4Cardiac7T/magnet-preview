@@ -1,0 +1,31 @@
+_target_: magnet.models.LightningModelGAN
+alpha: 0.1
+beta: 10
+lambda_voxel: 10000
+lambda_efield: 1
+lambda_hfield: 1
+lambda_physics: 100
+physics_loss: 
+  _target_: magnet.utils.faradays_loss.FaradaysLoss 
+  dx: 0.004
+  dy: 0.004
+  dz: 0.004
+  theoretical: True
+generator:
+  _target_: magnet.models.UNet
+  input_channels: 6
+  output_channels: 12
+  base_channels: 32
+  upsample: True
+  upsample_mode: trilinear
+discriminator:
+  _target_: magnet.models.vox2vox.Discriminator
+  in_channels: 6
+img_height: 121
+img_width: 76
+img_depth: 96
+glr: 0.0002
+dlr: 0.0002
+b1: 0.5
+b2: 0.999
+d_threshold: 8
