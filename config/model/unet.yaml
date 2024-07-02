@@ -5,7 +5,7 @@ lambda_efield: 1
 lambda_hfield: 1
 lambda_physics: 0.1
 physics_loss: 
-  _target_: magnet.utils.faradays_loss.FaradaysLoss
+  _target_: magnet.utils.zero_loss.ZeroLoss
 net:
   _target_: magnet.models.UNet
   input_channels: 6

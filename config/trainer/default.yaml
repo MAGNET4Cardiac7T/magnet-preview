@@ -6,12 +6,6 @@ logger:
   - _target_: pytorch_lightning.loggers.TensorBoardLogger
     save_dir: output/tb_logs
     version: ${experiment_name}
-  - _target_: pytorch_lightning.loggers.WandbLogger
-    save_dir: output/wandb_logs
-    project: magnet-physics
-    entity: magnet4cardiac7t
-    version: ${experiment_name}
-    offline: False
 accelerator: gpu
 devices: 1
 max_epochs: 200

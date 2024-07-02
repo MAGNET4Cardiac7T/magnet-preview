@@ -1,6 +1,5 @@
 import pytorch_lightning as pl
 import torch
-import wandb
 from magnet.utils.divergence_loss import *
 from magnet.utils.zero_loss import *
 from magnet.utils.faradays_loss import *
@@ -50,16 +49,14 @@ class LightningModel(pl.LightningModule):
         self.log("loss", loss, prog_bar=True)
         self.log("loss_voxel", loss_voxel, prog_bar=True)
         self.log("loss_voxel_efield", loss_voxel_efield, prog_bar=True)
-        wandb.log({"loss": loss,"loss_voxel": loss_voxel, "loss_voxel_efield": loss_voxel_efield,
-                   "loss_voxel_hfield": loss_voxel_hfield ,"loss_physics":loss_physics})
         return loss
     
     def test_step(self, batch, batch_idx):
         input, coil, y_efield,y_hfield, subject_mask = batch['input'], batch['coils_real'], batch['efield'], batch['hfield'], batch['subject']
         x = torch.cat([input,coil], dim=1)
         y = torch.cat([y_efield,y_hfield],dim=1)
-        y_hat = torch.zeros_like(y)
-        #y_hat = self(x)
+        #y_hat = torch.zeros_like(y)
+        y_hat = self(x)
         y_hat_efield = y_hat[:,0:6,:,:,:]
         y_hat_hfield = y_hat[:,6:12,:,:,:]
         

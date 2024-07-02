@@ -25,7 +25,8 @@ dependencies = [
     "hydra-core",
     "pandas",
     "scipy",
-    "rtree"
+    "rtree",
+    "tensorboard"
 ]
 requires-python = ">=3.9"
 

@@ -1,7 +1,6 @@
 import pytorch_lightning as pl
 import torch
 import numpy as np
-import wandb
 from .vox2vox import *
 from .unet import *
 from magnet.utils.dice_loss import *
@@ -125,7 +124,6 @@ class LightningModelGAN(pl.LightningModule):
         self.log("loss", loss_G, prog_bar=True)
         self.log("loss_voxel", loss_voxel, prog_bar=True)
         self.log("loss_physics", loss_physics, prog_bar=True)
-        wandb.log({"loss": loss_G, "loss_voxel": loss_voxel,"loss_physics":loss_physics})
         return loss_G
     
 
